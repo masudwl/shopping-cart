@@ -120,10 +120,23 @@ function subTotalMinus(id, price){
 
 document.getElementById("addPlus").addEventListener("click", function(){
     const inputTax = document.getElementById("taxValue").innerText; 
-    const taxValue = parseFloat("inputTax"); 
-    const taxAmount = taxValue+1;
-    document.getElementById("taxValue").innerText = taxAmount;
+    const taxValue = parseFloat(inputTax);
+
+    const subTotalStr = document.getElementById("subTotal").innerText; 
+    const subTotalValue = parseFloat(subTotalStr); 
+    const subTotalPercent = subTotalValue * 5/100;
+    const totalTax = subTotalPercent + taxValue; 
+    document.getElementById("taxValue").innerText = totalTax;
 })
+
+// function taxAmount(id, taxValues){
+//     const subTotalStr = document.getElementById(id).innerText; 
+//     const subTotalValue = parseFloat(subTotalStr); 
+//     const subTotalPercent = subTotalValue * 5/100;
+//     const totalTax = subTotalPercent + taxValue; 
+//     document.getElementById("taxValue").innerText = totalTax; 
+// }
+    
 
 function taxAmount(amount) {
     const taxPayable = amount * 0.5;
